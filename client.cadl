@@ -1,0 +1,40 @@
+import "./main.cadl";
+import "@azure-tools/cadl-dpg";
+
+using Azure.DPG;
+
+namespace Customizations;
+
+  @client({
+    name: "AdpCustomizeClient",
+    service: ADP
+  })
+  interface AdpDiscoveryClient {
+    // Discovery
+    createOrReplaceDiscovery is ADP.DataManagement.Ingestion.Discoveries.Discoveries.createOrReplace;
+    getDiscovery is ADP.DataManagement.Ingestion.Discoveries.Discoveries.get;
+    completeDiscovery is ADP.DataManagement.Ingestion.Discoveries.Discoveries.complete;
+    cancelDiscovery is ADP.DataManagement.Ingestion.Discoveries.Discoveries.cancel;
+
+    listDiscoverySpecialFiles is ADP.DataManagement.Ingestion.Discoveries.DiscoverySpecialFiles.list;
+    generateDiscoverySpecialFiles is ADP.DataManagement.Ingestion.Discoveries.DiscoverySpecialFiles.generate;
+
+    listUploadDetail is ADP.DataManagement.Ingestion.Discoveries.DiscoveryResultUploads.list;
+
+    // LongRunning
+    getLongRunning is ADP.Common.Operations.LongRunningOperations.get;
+
+    // Upload
+    createOrReplaceUploads is ADP.DataManagement.Ingestion.Uploads.Uploads.createOrReplace;
+    getUploads is ADP.DataManagement.Ingestion.Uploads.Uploads.get;
+    completeUploads is ADP.DataManagement.Ingestion.Uploads.Uploads.complete;
+    cancelUploads is ADP.DataManagement.Ingestion.Uploads.Uploads.cancel;
+
+    listUploadSpecialFiles is ADP.DataManagement.Ingestion.Uploads.UploadSpecialFiles.list;
+    generateUploadSpecialFiles is ADP.DataManagement.Ingestion.Uploads.UploadSpecialFiles.generate;
+
+    listUploadDataFiles is ADP.DataManagement.Ingestion.Uploads.UploadDataFiles.list;
+    generateUploadDataFiles is ADP.DataManagement.Ingestion.Uploads.UploadDataFiles.generate;
+
+    listMeasurements is ADP.DataManagement.Ingestion.Uploads.UploadResultMeasurements.list;
+  }
