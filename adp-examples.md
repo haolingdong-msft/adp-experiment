@@ -1,3 +1,10 @@
+# ADP Examples
+
+This document demonstrates two ADP cadl definitions, one is a general operation, another is a Long running operation. Both examples have live demo and generated code linked.
+
+This document also lists the issues I met during working on ADP generation.
+
+
 ### ADP cadl definition
 1. a general operation (non-LRO)
 
@@ -121,7 +128,7 @@ using OpenAPI;
 using Autorest;
 
 
-// operation definition
+// ADP operation definition
 interface Discoveries {
 
   #suppress "@azure-tools/cadl-azure-core/use-standard-operations" "ADP data-plane API uses custom LRO response template the LRO actions."
@@ -137,7 +144,6 @@ interface Discoveries {
   >;
 }
 
-// --------------------
 // ADP Discovery related models
 @doc("A discovery resource.")
 @resource("discoveries")
@@ -181,8 +187,7 @@ enum DiscoveryOperationTypeKV {
   AbortDiscovery: "AbortDiscovery",
 }
 
-//---------------
-// adp common models
+// ADP common models
 @doc("Default error response with custom header.")
 @friendlyName("CustomErrorResponseWithXMsErrorCodeHeader")
 model CustomErrorResponseWithXmsErrorCodeHeader is Foundations.ErrorResponse {
@@ -215,8 +220,7 @@ model CustomResourceOkResponse<T> {
 }
 
 
-// ---------
-// LRO related definitions
+// ADP LRO related definitions
 @action
 @autoRoute
 @segmentSeparator(":")
@@ -361,7 +365,7 @@ model LongRunningOperationBase<TOperationType = string, TStatusError = Azure.Cor
   ...CustomEtagProperty;
 }
 
-// --- Azure.Core.Foundation
+// Azure.Core.Foundation
 model AcceptedResponse<T = {}> is Cadl.Http.AcceptedResponse {
   ...T;
 }
