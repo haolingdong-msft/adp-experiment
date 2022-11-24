@@ -1,3 +1,10 @@
+# ADP Examples
+
+This document demonstrates two ADP cadl definitions, one is a general operation, another is a Long running operation. Both examples have live demo and generated code linked.
+
+This document also lists the issues I met during working on ADP generation.
+
+
 ### ADP cadl definition
 1. a general operation (non-LRO)
 
