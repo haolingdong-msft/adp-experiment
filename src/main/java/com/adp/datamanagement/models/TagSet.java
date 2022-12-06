@@ -18,7 +18,7 @@ public final class TagSet {
      * TODO: check with CADL team how to define a singleton child resource without key.
      */
     @JsonProperty(value = "id", required = true, access = JsonProperty.Access.WRITE_ONLY)
-    private String id;
+    private SingletonIdentifier id;
 
     /*
      * Set of data-stream tags.
@@ -43,7 +43,7 @@ public final class TagSet {
      *
      * @return the id value.
      */
-    public String getId() {
+    public SingletonIdentifier getId() {
         return this.id;
     }
 

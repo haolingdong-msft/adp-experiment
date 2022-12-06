@@ -246,7 +246,7 @@ public final class DiscoveryOperationsClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.LONG_RUNNING_OPERATION)
-    public SyncPoller<LongRunningOperation, Object> beginComplete(String discoveryId, String operationId) {
+    public SyncPoller<LongRunningOperation, Discovery> beginComplete(String discoveryId, String operationId) {
         // Generated convenience method for beginCompleteWithModel
         return client.beginComplete(discoveryId, operationId).getSyncPoller();
     }
@@ -265,7 +265,7 @@ public final class DiscoveryOperationsClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.LONG_RUNNING_OPERATION)
-    public SyncPoller<LongRunningOperation, Object> beginComplete(String discoveryId) {
+    public SyncPoller<LongRunningOperation, Discovery> beginComplete(String discoveryId) {
         // Generated convenience method for beginCompleteWithModel
         return client.beginComplete(discoveryId).getSyncPoller();
     }

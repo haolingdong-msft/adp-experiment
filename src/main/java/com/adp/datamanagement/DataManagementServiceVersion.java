@@ -6,7 +6,7 @@ package com.adp.datamanagement;
 
 import com.azure.core.util.ServiceVersion;
 
-/** Service version of LongRunningOperationsClient. */
+/** Service version of DataManagementClient. */
 public enum DataManagementServiceVersion implements ServiceVersion {
     /** Enum value 2022-11-30-preview. */
     V2022_11_30_PREVIEW("2022-11-30-preview");

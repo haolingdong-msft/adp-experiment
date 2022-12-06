@@ -5,6 +5,7 @@
 package com.adp.datamanagement.implementation;
 
 import com.adp.datamanagement.DataManagementServiceVersion;
+import com.adp.datamanagement.models.Discovery;
 import com.adp.datamanagement.models.LongRunningOperation;
 import com.azure.core.annotation.ExpectedResponses;
 import com.azure.core.annotation.Get;
@@ -525,7 +526,7 @@ public final class DiscoveryOperationsClientImpl {
      * @return the {@link PollerFlux} for polling of a discovery resource.
      */
     @ServiceMethod(returns = ReturnType.LONG_RUNNING_OPERATION)
-    public PollerFlux<LongRunningOperation, Object> beginCompleteWithModelAsync(
+    public PollerFlux<LongRunningOperation, Discovery> beginCompleteWithModelAsync(
             String discoveryId, RequestOptions requestOptions) {
         return PollerFlux.create(
                 Duration.ofSeconds(1),
@@ -538,7 +539,7 @@ public final class DiscoveryOperationsClientImpl {
                                 ? requestOptions.getContext()
                                 : Context.NONE),
                 TypeReference.createInstance(LongRunningOperation.class),
-                TypeReference.createInstance(Object.class));
+                TypeReference.createInstance(Discovery.class));
     }
 
     /**
@@ -569,7 +570,7 @@ public final class DiscoveryOperationsClientImpl {
      * @return the {@link SyncPoller} for polling of a discovery resource.
      */
     @ServiceMethod(returns = ReturnType.LONG_RUNNING_OPERATION)
-    public SyncPoller<LongRunningOperation, Object> beginCompleteWithModel(
+    public SyncPoller<LongRunningOperation, Discovery> beginCompleteWithModel(
             String discoveryId, RequestOptions requestOptions) {
         return this.beginCompleteWithModelAsync(discoveryId, requestOptions).getSyncPoller();
     }

@@ -37,10 +37,16 @@ public final class LongRunningOperation {
     private ResponseError error;
 
     /*
-     * The operation final result URI. Will be returned if the operation succeeds via `Location` header in response.
+     * The identifier of the service that was last to modify the operation status.
      */
-    @JsonProperty(value = "resultUri")
-    private String resultUri;
+    @JsonProperty(value = "lastModifiedBy", required = true)
+    private String lastModifiedBy;
+
+    /*
+     * The result resource location (URI).
+     */
+    @JsonProperty(value = "resultLocation")
+    private String resultLocation;
 
     /*
      * The entity tag for this resource.
@@ -52,13 +58,16 @@ public final class LongRunningOperation {
      * Creates an instance of LongRunningOperation class.
      *
      * @param status the status value to set.
+     * @param lastModifiedBy the lastModifiedBy value to set.
      * @param etag the etag value to set.
      */
     @JsonCreator
     private LongRunningOperation(
             @JsonProperty(value = "status", required = true) LongRunningOperationStatus status,
+            @JsonProperty(value = "lastModifiedBy", required = true) String lastModifiedBy,
             @JsonProperty(value = "etag", required = true) String etag) {
         this.status = status;
+        this.lastModifiedBy = lastModifiedBy;
         this.etag = etag;
     }
 
@@ -99,13 +108,21 @@ public final class LongRunningOperation {
     }
 
     /**
-     * Get the resultUri property: The operation final result URI. Will be returned if the operation succeeds via
-     * `Location` header in response.
+     * Get the lastModifiedBy property: The identifier of the service that was last to modify the operation status.
      *
-     * @return the resultUri value.
+     * @return the lastModifiedBy value.
      */
-    public String getResultUri() {
-        return this.resultUri;
+    public String getLastModifiedBy() {
+        return this.lastModifiedBy;
+    }
+
+    /**
+     * Get the resultLocation property: The result resource location (URI).
+     *
+     * @return the resultLocation value.
+     */
+    public String getResultLocation() {
+        return this.resultLocation;
     }
 
     /**

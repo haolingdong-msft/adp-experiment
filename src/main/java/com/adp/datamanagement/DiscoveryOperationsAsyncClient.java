@@ -255,7 +255,7 @@ public final class DiscoveryOperationsAsyncClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.LONG_RUNNING_OPERATION)
-    public PollerFlux<LongRunningOperation, Object> beginComplete(String discoveryId, String operationId) {
+    public PollerFlux<LongRunningOperation, Discovery> beginComplete(String discoveryId, String operationId) {
         // Generated convenience method for beginCompleteWithModel
         RequestOptions requestOptions = new RequestOptions();
         if (operationId != null) {
@@ -278,7 +278,7 @@ public final class DiscoveryOperationsAsyncClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.LONG_RUNNING_OPERATION)
-    public PollerFlux<LongRunningOperation, Object> beginComplete(String discoveryId) {
+    public PollerFlux<LongRunningOperation, Discovery> beginComplete(String discoveryId) {
         // Generated convenience method for beginCompleteWithModel
         RequestOptions requestOptions = new RequestOptions();
         return serviceClient.beginCompleteWithModelAsync(discoveryId, requestOptions);

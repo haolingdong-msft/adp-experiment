@@ -1,4 +1,0 @@
---patch-module
-com.adp.datamanagement=_
---add-reads
-com.adp.datamanagement=ALL-UNNAMED
