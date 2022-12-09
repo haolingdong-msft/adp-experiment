@@ -7,8 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="adp" />
-        <module name="adp-experiment" />
+        <module name="adp-datamanagement" />
+        <module name="adp-without-convenience-methods" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="adp-with-convenience-methods" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
